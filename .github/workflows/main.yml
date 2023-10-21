@@ -1,0 +1,16 @@
+name: Deploy website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy website
+        run: |
+          cd ${{ github.workspace }}
+          gh pages deploy
